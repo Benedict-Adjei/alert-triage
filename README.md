@@ -132,7 +132,7 @@ I documented my findings in a separate investigation report. The report explains
 
 ## Lessons Learned
 
-This project helped me understand how SOC analysts investigate security alerts in a real working environment.
+This project helped me understand how SOC analysts investigate security alerts in a real security environment.
 
 One of the biggest things I learned was that not every security alert means an attack has happened. During the HRCONNEX email investigation, I initially had to treat the email as suspicious because it contained an external link. However, after searching Splunk and reviewing the internal communication between HR and IT, I found evidence that the email was part of a legitimate onboarding process.
 
