@@ -34,9 +34,9 @@ The alerts had different severity levels, which helped me understand why SOC ana
 
 ### 1. Reviewing the Security Alerts
 
-I started by reviewing the alerts displayed on the TryHackMe SOC Simulator dashboard. There were five alerts in total, including four phishing-related alerts and one firewall alert.
+I took ownership of the alert that came in, displayed on the TryHackMe SOC Simulator dashboard. There were five alerts in total, including four phishing-related alerts and one firewall alert.
 
-Before investigating, I looked at the alert descriptions, severity levels, and available information to understand what might have triggered each alert.
+Before investigating, I read and understood the alert descriptions, severity levels, and ip addresses, suspicious link, email addresses, and other available information to understand what might have triggered each alert.
 
 This helped me decide what evidence I needed to examine during the investigation.
 
@@ -46,9 +46,9 @@ This helped me decide what evidence I needed to examine during the investigation
 
 For the phishing alerts, I used the phishing investigation playbook provided in the simulation.
 
-The playbook helped me understand the steps involved in investigating a suspicious email. These included reviewing the sender's email address, checking links in the message, and looking for evidence of suspicious network activity.
+The playbook helped me understand the steps involved in investigating a suspicious email. These included reviewing the sender's email address, checking the suspicious links in the email, and looking for evidence of suspicious network activity.
 
-I learned that an email should not be classified as phishing simply because it contains an external link. It is important to investigate the sender, the purpose of the email, and any related activity before making a decision.
+I learned that an email should not be classified as phishing simply because it contains an external link. It is important to investigate the sender, the purpose of the email, the subject of the email, domain of the email, and any related activity before making a decision.
 
 ![Phishing Investigation Playbook](screenshots/03-phishing-playbook.png)
 
@@ -66,7 +66,7 @@ Based on the available evidence, I classified the alert as a false positive.
 
 ### 4. Investigating a Blocked Firewall Connection
 
-I also reviewed a firewall event involving a device with the source IP address `10.20.2.17`.
+I also reviewed a firewall log involving a device with the source IP address `10.20.2.17`.
 
 The device attempted to connect to the destination IP address `67.199.248.11` using TCP port 80.
 
@@ -102,7 +102,7 @@ The tool flagged the IP address as malicious, which gave me additional informati
 
 I learned that threat intelligence results can help analysts understand the potential risk of an IP address, but they should not be the only evidence used to make a final decision.
 
-![Threat Intelligence Analysis](screenshots/07-url-analysis.png)
+![Threat Intelligence Analysis](screenshots/07-ipaddress-analysis.png)
 
 ### 7. Closing the Security Alert
 
@@ -110,4 +110,3 @@ After completing an investigation and reviewing the available evidence, I docume
 
 This helped me practice the final stage of alert triage, where analysts record their conclusions and explain why an alert was classified as a true positive or false positive.
 
-![Alert Closure](screenshots/08-alert-closed.png)
