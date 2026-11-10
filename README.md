@@ -107,7 +107,39 @@ I learned that threat intelligence results can help analysts understand the pote
 
 ### 7. Closing the Security Alert
 
-After completing the  investigation and reviewing the available evidence, I wrote an Incident Response and closed the alert in the SOC Simulator. For each alert, I classified each alert as either a false positive or a true positive. Alerts classified as positives, there was no need to escalate the alerts to threat hunters and incident responders assuming I was working in a corporate Security Operations Center Environment. Also, alerts that were classified as true positives has to be escalated. In the process of writing my incident report, I made sure my reports answers 5 W's including **Who:** the people and the machines involved, **What:** what happened, **When:** What happened, **When:** the time of the activity, **Where:** Where it happened, like the source and destination of a connnection, **Why:** the reason behind it, such as what an attacker was trying to do, or why the activiyt is legitimate.
+After investigating the alerts and reviewing the available evidence, I wrote incident reports explaining my findings and closed the alerts in the SOC Simulator.
 
-This helped me practice the final stage of alert triage, where analysts report their conclusions and explain why an alert was classified as a true positive or false positive.
+For each alert, I had to decide whether it was a true positive or a false positive. I also considered whether the alert needed to be escalated to a senior SOC analyst, threat hunter, or incident response team.
 
+I learned that false positives can usually be closed after confirming that the activity is legitimate. For true positives, the next action depends on the severity of the threat, the potential impact, and the organization's incident response procedures.
+
+When writing my incident reports, I used the 5 W's to make sure my findings were clear:
+- **Who:** The users, devices, or IP addresses involved.
+- **What:** The suspicious activity that triggered the alert.
+- **When:** The date and time the activity occurred.
+- **Where:** Where the activity originated and where it was directed.
+- **Why:** The possible reason behind the activity and what the available evidence suggested.
+I also included the indicators of compromise (IOCs), the evidence I collected, and the reason for my final classification.
+
+This helped me understand that SOC analysts must not only investigate security alerts but also explain their decisions clearly so other team members can understand what happened.
+
+
+## Investigation Reports
+
+I documented my findings in a separate investigation report. The report explains the alerts I investigated, the evidence I collected, and the reasons behind my final decisions.
+
+[Read My SOC Alert Triage Investigation Report](investigations/alert-triage-summary.md)
+
+## Lessons Learned
+
+This project helped me understand how SOC analysts investigate security alerts in a real working environment.
+
+One of the biggest things I learned was that not every security alert means an attack has happened. During the HRCONNEX email investigation, I initially had to treat the email as suspicious because it contained an external link. However, after searching Splunk and reviewing the internal communication between HR and IT, I found evidence that the email was part of a legitimate onboarding process.
+
+I also learned how important firewall logs are during an investigation. I examined one connection that was blocked and another that was allowed. This taught me that even when a firewall allows a connection, it does not automatically mean the activity is safe.
+
+Another important lesson was how to write incident reports. I practiced explaining what happened, identifying the systems involved, and supporting my conclusions with evidence instead of assumptions.
+
+I still want to improve my Splunk Search Processing Language (SPL) skills, especially when it comes to correlating events across different data sources and investigating more complicated attacks.
+
+Overall, this project gave me more confidence in investigating security alerts and helped me understand the responsibilities of a Level 1 SOC analyst.
