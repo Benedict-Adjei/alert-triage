@@ -55,6 +55,6 @@ I also checked the destination IP address using TryDetectThis, which identified 
 
 The firewall log confirmed that the connection attempt was blocked.
 
-**Final Decision:** Add your actual True Positive or False Positive classification.
+**Final Decision:** True Positive
 
 **Reason:** The logs confirm a blocked connection to a blacklisted destination. They do not, by themselves, prove that the endpoint was compromised.
