@@ -4,9 +4,9 @@
 
 I worked on this project to get practical experience with the daily responsibilities of a Security Operations Center (SOC) analyst. I used TryHackMe's SOC Simulator and Splunk SIEM to investigate 5 security alerts involving suspicious emails and network connections.
 
-The simulation included five security alerts: four phishing-related alerts and one firewall alert. My task was to review the alerts, write out indicators of compromise (IoCs), investigate the available evidence, and determine whether the alerts was either a true positive or a false positive.
+The simulation included five security alerts: four phishing-related alerts and one firewall alert. My task was to review the alerts, write out indicators of compromise (IoCs), determine whether the alert was either a true positive or a false positive, and document an incident response to close the alert - escalation if needed.
 
-During the investigation, I reviewed email information, searched email and firewall logs in Splunk, checked suspicious IP addresses using TryDetectThis, and examined firewall logs to understand whether network connections were allowed or blocked.
+During the investigation, I reviewed email information including the sender and recipient, searched email and firewall logs in Splunk, checked suspicious IP addresses using TryDetectThis, and also examined firewall logs to understand whether network connections were allowed or blocked.
 
 I also followed a phishing investigation playbook to guide my investigation and wrote an incidence report.
 
@@ -18,6 +18,7 @@ The main goal of this project was to improve my alert triage, log analysis, thre
 - **Splunk Enterprise:** Used to search and analyze email and firewall logs.
 - **TryDetectThis:** Used to check suspicious URLs, file hashes, and IP addresses.
 - **Phishing Investigation Playbook:** Used as a guide for investigating suspicious emails.
+- **Network Connection Investigation Playbook:** Used as a guide for investigating allowed or blocked connections.
 
 ## Investigation Environment
 
@@ -48,7 +49,7 @@ For the phishing alerts, I used the phishing investigation playbook provided in 
 
 The playbook helped me understand the steps involved in investigating a suspicious email. These included reviewing the sender's email address, checking the suspicious links in the email, and looking for evidence of suspicious network activity.
 
-I learned that an email should not be classified as phishing simply because it contains an external link. It is important to investigate the sender, the purpose of the email, the subject of the email, domain of the email, and any related activity before making a decision.
+I learned that an email should not be classified as phishing simply because it contains an external link. It is important to investigate the sender, recipient, the purpose of the email, the subject of the email, domain of the email, and any related activity before making a decision.
 
 ![Phishing Investigation Playbook](screenshots/03-phishing-playbook.png)
 
@@ -82,9 +83,9 @@ The investigation helped me understand how firewall logs and threat intelligence
 
 ### 5. Investigating an Allowed Firewall Connection
 
-Another firewall event showed a connection from the source IP address `10.20.2.25` to the destination IP address `45.148.10.131` over TCP port 443.
+Another firewall log showed a connection from the source IP address `10.20.2.25` to the destination IP address `45.148.10.131` over TCP port 443.
 
-Unlike the previous event, this connection was allowed by the firewall.
+Unlike the previous log, this connection was allowed by the firewall.
 
 The event was associated with a suspicious Microsoft-themed URL.
 
@@ -106,7 +107,7 @@ I learned that threat intelligence results can help analysts understand the pote
 
 ### 7. Closing the Security Alert
 
-After completing an investigation and reviewing the available evidence, I documented my findings and closed the alert in the SOC Simulator.
+After completing the  investigation and reviewing the available evidence, I wrote an Incident Response and closed the alert in the SOC Simulator. For each alert, I classified each alert as either a false positive or a true positive. Alerts classified as positives, there was no need to escalate the alerts to threat hunters and incident responders assuming I was working in a corporate Security Operations Center Environment. Also, alerts that were classified as true positives has to be escalated. In the process of writing my incident report, I made sure my reports answers 5 W's including **Who:** the people and the machines involved, **What:** what happened, **When:**What happened, **When:** the time of the activity, **Where:** Where it happened, like the source and destination of a connnection, **Why:** the reason behind it, such as what an attacker was trying to do, or why the activiyt is legitimate.
 
-This helped me practice the final stage of alert triage, where analysts record their conclusions and explain why an alert was classified as a true positive or false positive.
+This helped me practice the final stage of alert triage, where analysts report their conclusions and explain why an alert was classified as a true positive or false positive.
 
